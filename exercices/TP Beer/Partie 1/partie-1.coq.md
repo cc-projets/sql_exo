@@ -38,53 +38,71 @@ Réalisez les requêtes suivantes :
 ### Quels sont les tickets qui comportent l’article d’ID 500, afficher le numéro de ticket uniquement ?
 
 ```mysql
-select numero_ticket from ventes where id_article = 500;
+SELECT numero_ticket
+FROM ventes
+WHERE id_article = 500;
 ```
 
 ### Afficher les tickets du 15/01/2014.
 
 ```mysql
-select numero_ticket from ticket where date(date_vente) = '2014-01-15';
+SELECT numero_ticket
+FROM ticket
+WHERE date(date_vente) = '2014-01-15';
 ```
 
 ### Afficher les tickets émis du 15/01/2014 et le 17/01/2014.
 
 ```mysql
-select numero_ticket from ticket where date(date_vente) between '2014-01-15' and '2014-01-17';
+SELECT numero_ticket
+FROM ticket
+WHERE date(date_vente) BETWEEN '2014-01-15' AND '2014-01-17';
 ```
 
 ### Editer la liste des articles apparaissant à 50 et plus exemplaires sur un ticket.
 
 ```mysql
-select numero_ticket from ventes where quantite > 50;
+SELECT numero_ticket
+FROM ventes
+WHERE quantite > 50;
 ```
 
 ### Quelles sont les tickets émis au mois de mars 2014.
 
 ```mysql
-select numero_ticket from ticket where year(date_vente) = '2014' and month(date_vente) = '3';
+SELECT numero_ticket
+FROM ticket
+WHERE year(date_vente) = '2014' AND month(date_vente) = '3';
 ```
 
 ### Quelles sont les tickets émis entre les mois de mars et avril 2014 ?
 
 ```mysql
-select numero_ticket from ticket where year(date_vente) = '2014' and month(date_vente) in ('3', '4');
+SELECT numero_ticket
+FROM ticket
+WHERE year(date_vente) = '2014' AND month(date_vente) IN ('3', '4');
 ```
 
 ### Quelles sont les tickets émis au mois de mars et juin 2014 ?
 
 ```mysql
-select numero_ticket from ticket where year(date_vente) = '2014' and month(date_vente) in ('3', '6');
+SELECT numero_ticket
+FROM ticket
+WHERE year(date_vente) = '2014' AND month(date_vente) IN ('3', '6');
 ```
 
 ### Afficher la liste des bières classée par couleur. (Afficher l’id et le nom)
 
 ```mysql
-select id_article, nom_article from article order by id_couleur ASC;
+SELECT id_article, nom_article
+FROM article
+ORDER BY id_couleur ASC;
 ```
 
 ### Afficher la liste des bières n’ayant pas de couleur. (Afficher l’id et le nom)
 
 ```mysql
-select id_article, nom_article from article where id_couleur is null;
+SELECT id_article, nom_article
+FROM article
+WHERE id_couleur IS NULL;
 ```
